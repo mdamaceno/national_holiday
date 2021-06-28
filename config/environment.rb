@@ -30,6 +30,7 @@ Dotenv.load('.env.test') if ENV['RACK_ENV'] == 'test'
 
 require 'date'
 require 'securerandom'
+require 'singleton'
 
 Zeitwerk::Loader.new.tap do |loader|
   lib_path = File.expand_path('../lib', __dir__)
@@ -51,9 +52,5 @@ class AppEnvironment
 
     @booted = true
     @env = ENV['RACK_ENV']
-  end
-
-  def mongo_conn_string(database)
-    "#{ENV['MONGO_URL']}/#{database}?authSource=admin&replicaSet=rs0"
   end
 end
