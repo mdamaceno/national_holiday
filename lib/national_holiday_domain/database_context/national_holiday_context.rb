@@ -34,6 +34,18 @@ module NationalHolidayDomain
           end.drop(1)
       end
 
+      def cities
+        content = parse_csv(build_cities_file_path)
+        content
+          .to_a
+          .map do |id, name|
+            {
+              id: id,
+              name: name,
+            }
+          end.drop(1)
+      end
+
       private
 
       def parse_csv(file_path)
@@ -43,6 +55,9 @@ module NationalHolidayDomain
       def build_holidays_file_path
         File.join(COLLECTIONS_PATH, 'holidays', "#{@country_abbreviation}.csv")
       end
+
+      def build_cities_file_path
+        File.join(COLLECTIONS_PATH, 'cities', "#{@country_abbreviation}.csv")
       end
     end
   end
