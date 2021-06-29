@@ -17,7 +17,6 @@ module NationalHolidayDomain
           .to_a
           .map do |id,name,month_day,optional,owner,type|
             {
-              id: id,
               name: name,
               month_day: month_day,
               optional: optional === 'true',
