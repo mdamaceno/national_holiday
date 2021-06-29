@@ -7,6 +7,14 @@ module NationalHolidayDomain
     include Concerns::Database
 
     class NationalHolidayContext
+      COLLECTIONS_PATH = File.join(
+        AppEnvironment::ROOT_PATH,
+        'lib',
+        'national_holiday_domain',
+        'database_context',
+        'collections'
+      )
+
       def initialize(country_abbreviation)
         @country_abbreviation = country_abbreviation
       end
@@ -30,15 +38,8 @@ module NationalHolidayDomain
       private
 
       def build_holidays_file_path
-        File.join(
-          AppEnvironment::ROOT_PATH,
-          'lib',
-          'national_holiday_domain',
-          'database_context',
-          'collections',
-          'holidays',
-          "#{@country_abbreviation}.csv"
-        )
+        File.join(COLLECTIONS_PATH, 'holidays', "#{@country_abbreviation}.csv")
+      end
       end
     end
   end
