@@ -21,12 +21,13 @@ module NationalHolidayDomain
 
       def holidays
         content = parse_csv(build_holidays_file_path)
-        content
+        content = content
           .to_a
-          .map do |_id, name, month_day, optional, owner, type|
+          .map do |_id, name, month, day, optional, owner, type|
             {
               name: name,
-              month_day: month_day,
+              month: month.respond_to?(:to_i) ? month.to_i : month,
+              day: day.respond_to?(:to_i) ? day.to_i : day,
               optional: optional === 'true',
               owner: owner,
               type: type

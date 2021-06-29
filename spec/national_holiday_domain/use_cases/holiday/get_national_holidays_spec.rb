@@ -11,7 +11,8 @@ describe NationalHolidayDomain::UseCases::Holiday::GetNationalHolidays do
 
       expect(result[:holidays][0]).to include(
         name: a_kind_of(String),
-        month_day: a_kind_of(String),
+        month: a_kind_of(Integer),
+        day: a_kind_of(Integer),
         owner: a_kind_of(String),
         type: a_kind_of(String),
         optional: be(true).or(be(false))
@@ -24,7 +25,8 @@ describe NationalHolidayDomain::UseCases::Holiday::GetNationalHolidays do
       expect(result[:holidays]).to include(
         {
           name: eq('Páscoa'),
-          month_day: a_kind_of(String),
+          month: a_kind_of(Integer),
+          day: a_kind_of(Integer),
           owner: eq('Brazil'),
           type: eq('COUNTRY'),
           optional: be(true).or(be(false))

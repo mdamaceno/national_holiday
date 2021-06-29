@@ -12,7 +12,8 @@ describe NationalHolidayDomain::UseCases::Holiday::GetCityHolidays do
 
       expect(result[:holidays][0]).to include(
         name: a_kind_of(String),
-        month_day: a_kind_of(String),
+        month: a_kind_of(Integer),
+        day: a_kind_of(Integer),
         owner: eq('Juiz de Fora'),
         type: eq('CITY'),
         optional: be(true).or(be(false))
