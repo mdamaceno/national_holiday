@@ -1,0 +1,9 @@
+id;name;month_day;optional;owner;type
+adcc3dc7-4fec-4297-93a5-a793ba939084;Ano Novo;1-1;false;Brazil;COUNTRY
+abb2a0e8-ea75-4d4d-b1e3-e00088c6322a;Tiradentes;4-21;false;Brazil;COUNTRY
+f1b84b7b-b71c-4abe-a44e-893d48947439;Dia do Trabalhador;5-1;false;Brazil;COUNTRY
+4660a504-043f-4cb1-a0a3-e1ba82812630;Independência;9-7;false;Brazil;COUNTRY
+a11cfa25-3ffd-46d9-bbc6-e8858e308aaa;Nossa Senhora Aparecida;10-12;false;Brazil;COUNTRY
+ecea1073-13b2-44ad-9f1f-625c14b8f4f8;Finados;11-2;false;Brazil;COUNTRY
+838fdb6f-d5be-40eb-a0cb-67f8b8bf4dd1;Conciência Negra;11-20;true;Brazil;COUNTRY
+1523fa82-52fb-40aa-a0cf-3fbebf43f488;Natal;12-25;false;Brazil;COUNTRY
