@@ -35,7 +35,8 @@ module NationalHolidayDomain
           'lib',
           'national_holiday_domain',
           'database_context',
-          'holidays_db',
+          'collections',
+          'holidays',
           "#{@country_abbreviation}.csv"
         )
       end
