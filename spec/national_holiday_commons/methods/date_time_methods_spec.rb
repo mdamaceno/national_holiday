@@ -12,4 +12,12 @@ describe NationalHolidayCommons::Methods::DateTimeMethods do
       expect(((datetime - now) / 24 / 60 / 60).round).to eq number_of_days
     end
   end
+
+  describe '#easter_day' do
+    it 'is sunday' do
+      date = described_class.easter_day(rand(2000..2030))
+
+      expect(date.sunday?).to be(true)
+    end
+  end
 end

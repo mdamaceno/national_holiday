@@ -7,7 +7,7 @@ describe NationalHolidayDomain::UseCases::Holiday::GetNationalHolidays do
 
   describe '#call' do
     it 'returns a hash with an array of holidays' do
-      result = klass.call('BR')
+      result = klass.call(2021, 'BR')
 
       expect(result[:holidays][0]).to include(
         name: a_kind_of(String),
@@ -15,6 +15,20 @@ describe NationalHolidayDomain::UseCases::Holiday::GetNationalHolidays do
         owner: a_kind_of(String),
         type: a_kind_of(String),
         optional: be(true).or(be(false))
+      )
+    end
+
+    it 'the hash contains a array that contains Easter Day' do
+      result = klass.call(2021, 'BR')
+
+      expect(result[:holidays]).to include(
+        {
+          name: eq('Páscoa'),
+          month_day: a_kind_of(String),
+          owner: eq('Brazil'),
+          type: eq('COUNTRY'),
+          optional: be(true).or(be(false))
+        }
       )
     end
   end

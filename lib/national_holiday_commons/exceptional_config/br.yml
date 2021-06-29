@@ -1,0 +1,6 @@
+---
+holidays:
+  easter_day:
+    name: 'Páscoa'
+    type: 'COUNTRY'
+    optional: true
