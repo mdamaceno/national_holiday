@@ -19,4 +19,3 @@ module NationalHolidayDomain
     end
   end
 end
-

@@ -14,4 +14,3 @@ module NationalHolidayApi
     end
   end
 end
-

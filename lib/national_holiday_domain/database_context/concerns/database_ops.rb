@@ -5,9 +5,7 @@ module NationalHolidayDomain
     module Concerns
       module DatabaseOps
         def self.find_in_database(collection, filter_by = {})
-          unless filter_by[:type].nil?
-            collection = collection.select { |r| r[:type] === filter_by[:type] }
-          end
+          collection = collection.select { |r| r[:type] === filter_by[:type] } unless filter_by[:type].nil?
 
           collection
         end

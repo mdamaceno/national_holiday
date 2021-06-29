@@ -12,10 +12,11 @@ module NationalHolidayDomain
       end
 
       def holidays
-        content = CSV.parse(File.read(build_holidays_file_path), headers: true, header_converters: :symbol, col_sep: ';')
+        content = CSV.parse(File.read(build_holidays_file_path), headers: true, header_converters: :symbol,
+                                                                 col_sep: ';')
         content
           .to_a
-          .map do |id,name,month_day,optional,owner,type|
+          .map do |_id, name, month_day, optional, owner, type|
             {
               name: name,
               month_day: month_day,

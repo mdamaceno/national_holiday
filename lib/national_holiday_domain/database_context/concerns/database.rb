@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-#
+
 module NationalHolidayDomain
   module DatabaseContext
     module Concerns
