@@ -20,8 +20,7 @@ module NationalHolidayDomain
       end
 
       def holidays
-        content = CSV.parse(File.read(build_holidays_file_path), headers: true, header_converters: :symbol,
-                                                                 col_sep: ';')
+        content = parse_csv(build_holidays_file_path)
         content
           .to_a
           .map do |_id, name, month_day, optional, owner, type|
@@ -36,6 +35,10 @@ module NationalHolidayDomain
       end
 
       private
+
+      def parse_csv(file_path)
+        CSV.parse(File.read(file_path), headers: true, header_converters: :symbol, col_sep: ';')
+      end
 
       def build_holidays_file_path
         File.join(COLLECTIONS_PATH, 'holidays', "#{@country_abbreviation}.csv")
