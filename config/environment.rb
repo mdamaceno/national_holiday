@@ -36,8 +36,6 @@ Zeitwerk::Loader.new.tap do |loader|
   lib_path = File.expand_path('../lib', __dir__)
   loader.push_dir(lib_path)
   loader.setup
-
-  loader.eager_load if ENV['RACK_ENV'] == 'production'
 end
 
 class AppEnvironment
