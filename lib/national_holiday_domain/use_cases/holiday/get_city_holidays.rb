@@ -13,7 +13,14 @@ module NationalHolidayDomain
         private
 
         def get_in_database(country_abbr, filter)
-          DatabaseOps.find_in_database(Database.db_instance(country_abbr).holidays, filter)
+          db_instance = Database.db_instance(country_abbr)
+          holidays = DatabaseOps.find_in_database(db_instance.holidays, filter)
+          city = DatabaseOps.find_in_database(db_instance.cities, { id: filter[:owner] }).first
+
+          holidays.map do |h|
+            h[:owner] = city[:name]
+            h
+          end
         end
       end
     end

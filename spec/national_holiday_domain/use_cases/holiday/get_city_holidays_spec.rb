@@ -7,13 +7,14 @@ describe NationalHolidayDomain::UseCases::Holiday::GetCityHolidays do
 
   describe '#call' do
     it 'returns a hash with an array of holidays' do
-      result = klass.call('BR', '3136702')
+      city_code = '3136702'
+      result = klass.call('BR', city_code)
 
       expect(result[:holidays][0]).to include(
         name: a_kind_of(String),
         month_day: a_kind_of(String),
-        owner: a_kind_of(String),
-        type: a_kind_of(String),
+        owner: eq('Juiz de Fora'),
+        type: eq('CITY'),
         optional: be(true).or(be(false))
       )
     end
