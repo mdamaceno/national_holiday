@@ -11,7 +11,7 @@ module NationalHolidayDomain
           holidays = get_in_database(country_abbr, { type: 'COUNTRY' })
           holidays << build_easter_day(year.to_i, country_abbr)
 
-          { holidays: holidays.sort { |a,b| a[:month] <=> b[:month] } }
+          { holidays: holidays.sort { |a, b| a[:month] <=> b[:month] } }
         end
 
         private

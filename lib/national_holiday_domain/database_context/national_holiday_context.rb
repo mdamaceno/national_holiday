@@ -21,18 +21,18 @@ module NationalHolidayDomain
 
       def holidays
         content = parse_csv(build_holidays_file_path)
-        content = content
+        content
           .to_a
           .map do |_id, name, month, day, optional, owner, type|
-            {
-              name: name,
-              month: month.respond_to?(:to_i) ? month.to_i : month,
-              day: day.respond_to?(:to_i) ? day.to_i : day,
-              optional: optional === 'true',
-              owner: owner,
-              type: type
-            }
-          end.drop(1)
+          {
+            name: name,
+            month: month.respond_to?(:to_i) ? month.to_i : month,
+            day: day.respond_to?(:to_i) ? day.to_i : day,
+            optional: optional === 'true',
+            owner: owner,
+            type: type
+          }
+        end.drop(1)
       end
 
       def cities
@@ -42,7 +42,7 @@ module NationalHolidayDomain
           .map do |id, name|
             {
               id: id,
-              name: name,
+              name: name
             }
           end.drop(1)
       end
