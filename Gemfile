@@ -2,8 +2,6 @@
 
 source 'https://rubygems.org'
 
-gem 'dry-struct'
-gem 'dry-types'
 gem 'json'
 gem 'puma'
 gem 'rack'
