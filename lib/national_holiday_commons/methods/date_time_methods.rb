@@ -29,15 +29,15 @@ module NationalHolidayCommons
       end
 
       def self.carnival_day(year)
-        self.add_days(self.easter_day(year), -47)
+        add_days(easter_day(year), -47)
       end
 
       def self.good_friday(year)
-        self.add_days(self.easter_day(year), -2)
+        add_days(easter_day(year), -2)
       end
 
       def self.corpus_christi_day(year)
-        self.add_days(self.easter_day(year), 60)
+        add_days(easter_day(year), 60)
       end
     end
   end
