@@ -8,3 +8,7 @@ holidays:
     name: 'Carnaval'
     type: 'COUNTRY'
     optional: false
+  good_friday:
+    name: 'Paixão de Cristo'
+    type: 'COUNTRY'
+    optional: false
