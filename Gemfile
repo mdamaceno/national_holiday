@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+ruby '3.0.1'
+
 gem 'json'
 gem 'puma'
 gem 'rack'
