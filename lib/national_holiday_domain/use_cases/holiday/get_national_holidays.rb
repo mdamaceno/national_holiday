@@ -9,9 +9,10 @@ module NationalHolidayDomain
 
         def call(year, country_abbr)
           holidays = get_in_database(country_abbr, { type: 'COUNTRY' })
-          holidays << build_easter_day(year.to_i, country_abbr)
-          holidays << build_carnival_day(year.to_i, country_abbr)
-          holidays << build_good_friday(year.to_i, country_abbr)
+          holidays << build_catholic_holiday('easter_day', year.to_i, country_abbr)
+          holidays << build_catholic_holiday('carnival_day', year.to_i, country_abbr)
+          holidays << build_catholic_holiday('good_friday', year.to_i, country_abbr)
+          holidays << build_catholic_holiday('corpus_christi_day', year.to_i, country_abbr)
 
           { holidays: holidays.sort { |a, b| a[:month] <=> b[:month] } }
         end
@@ -22,45 +23,17 @@ module NationalHolidayDomain
           DatabaseOps.find_in_database(Database.db_instance(country_abbr).holidays, filter)
         end
 
-        def build_easter_day(year, country_abbr)
-          date = DateTimeMethods.easter_day(year)
+        def build_catholic_holiday(holiday_name, year, country_abbr)
+          date = DateTimeMethods.send(holiday_name.to_sym, year)
           dict = Dictionary.select_country(country_abbr)
 
           {
-            name: dict['holidays']['easter_day']['name'],
+            name: dict['holidays'][holiday_name]['name'],
             month: date.month,
             day: date.day,
-            optional: dict['holidays']['easter_day']['optional'],
+            optional: dict['holidays'][holiday_name]['optional'],
             owner: Country.code[country_abbr.upcase],
-            type: dict['holidays']['easter_day']['type']
-          }
-        end
-
-        def build_carnival_day(year, country_abbr)
-          date = DateTimeMethods.carnival_day(year)
-          dict = Dictionary.select_country(country_abbr)
-
-          {
-            name: dict['holidays']['carnival_day']['name'],
-            month: date.month,
-            day: date.day,
-            optional: dict['holidays']['carnival_day']['optional'],
-            owner: Country.code[country_abbr.upcase],
-            type: dict['holidays']['carnival_day']['type']
-          }
-        end
-
-        def build_good_friday(year, country_abbr)
-          date = DateTimeMethods.good_friday(year)
-          dict = Dictionary.select_country(country_abbr)
-
-          {
-            name: dict['holidays']['good_friday']['name'],
-            month: date.month,
-            day: date.day,
-            optional: dict['holidays']['good_friday']['optional'],
-            owner: Country.code[country_abbr.upcase],
-            type: dict['holidays']['good_friday']['type']
+            type: dict['holidays'][holiday_name]['type']
           }
         end
       end
