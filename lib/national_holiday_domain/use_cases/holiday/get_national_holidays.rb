@@ -8,11 +8,12 @@ module NationalHolidayDomain
         include NationalHolidayCommons::Methods
 
         def call(year, country_abbr)
+          year = year.to_i
           holidays = get_in_database(country_abbr, { type: 'COUNTRY' })
-          holidays << build_catholic_holiday('easter_day', year.to_i, country_abbr)
-          holidays << build_catholic_holiday('carnival_day', year.to_i, country_abbr)
-          holidays << build_catholic_holiday('good_friday', year.to_i, country_abbr)
-          holidays << build_catholic_holiday('corpus_christi_day', year.to_i, country_abbr)
+          holidays << build_catholic_holiday('easter_day', year, country_abbr)
+          holidays << build_catholic_holiday('carnival_day', year, country_abbr)
+          holidays << build_catholic_holiday('good_friday', year, country_abbr)
+          holidays << build_catholic_holiday('corpus_christi_day', year, country_abbr)
 
           { holidays: holidays.sort { |a, b| a[:month] <=> b[:month] } }
         end
