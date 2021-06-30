@@ -3,4 +3,8 @@ holidays:
   easter_day:
     name: 'Páscoa'
     type: 'COUNTRY'
-    optional: true
+    optional: false
+  carnival_day:
+    name: 'Carnaval'
+    type: 'COUNTRY'
+    optional: false
