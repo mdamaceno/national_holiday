@@ -50,7 +50,7 @@ module NationalHolidayDomain
       private
 
       def parse_csv(file_path)
-        CSV.parse(File.read(file_path), headers: true, header_converters: :symbol, col_sep: ';')
+        CSV.parse(File.read(file_path), headers: true, header_converters: :symbol, col_sep: ';', encoding: 'UTF-8')
       end
 
       def build_holidays_file_path
