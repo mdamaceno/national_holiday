@@ -12,3 +12,7 @@ holidays:
     name: 'Paixão de Cristo'
     type: 'COUNTRY'
     optional: false
+  corpus_christi_day:
+    name: 'Corpus Christi'
+    type: 'COUNTRY'
+    optional: false

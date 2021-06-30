@@ -63,5 +63,20 @@ describe NationalHolidayDomain::UseCases::Holiday::GetNationalHolidays do
         }
       )
     end
+
+    it 'the hash contains a array that contains Corpus Christi Day' do
+      result = klass.call(2021, 'BR')
+
+      expect(result[:holidays]).to include(
+        {
+          name: eq('Corpus Christi'),
+          month: a_kind_of(Integer),
+          day: a_kind_of(Integer),
+          owner: eq('Brazil'),
+          type: eq('COUNTRY'),
+          optional: be(true).or(be(false))
+        }
+      )
+    end
   end
 end
