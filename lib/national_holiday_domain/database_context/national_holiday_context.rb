@@ -28,7 +28,7 @@ module NationalHolidayDomain
             name: name,
             month: month.respond_to?(:to_i) ? month.to_i : month,
             day: day.respond_to?(:to_i) ? day.to_i : day,
-            optional: optional === 'true',
+            optional: optional.eql?('true'),
             owner: owner,
             type: type
           }
