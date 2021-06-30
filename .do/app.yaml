@@ -1,0 +1,15 @@
+name: national-holiday
+region: nyc
+services:
+- environment_slug: ruby
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: mdamaceno/national_holliday
+  http_port: 8090
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: national-holliday
+  routes:
+  - path: /
+  source_dir: /
