@@ -10,10 +10,10 @@ module NationalHolidayDomain
         def call(year, country_abbr)
           year = year.to_i
           holidays = get_in_database(country_abbr, { type: 'COUNTRY' })
-          holidays << build_catholic_holiday('easter_day', year, country_abbr)
-          holidays << build_catholic_holiday('carnival_day', year, country_abbr)
-          holidays << build_catholic_holiday('good_friday', year, country_abbr)
-          holidays << build_catholic_holiday('corpus_christi_day', year, country_abbr)
+
+          %w[easter_day carnival_day good_friday corpus_christi_day].each do |holiday|
+            holidays << build_catholic_holiday(holiday, year, country_abbr)
+          end
 
           { holidays: holidays.sort { |a, b| a[:month] <=> b[:month] } }
         end
