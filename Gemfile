@@ -6,7 +6,6 @@ ruby '3.0.1'
 
 gem 'json'
 gem 'puma'
-gem 'rack'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'zeitwerk'

@@ -112,7 +112,6 @@ DEPENDENCIES
   pry
   pry-byebug
   puma
-  rack
   rspec
   rubocop
   rubocop-rspec
