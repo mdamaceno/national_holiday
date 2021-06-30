@@ -5,12 +5,12 @@ module NationalHolidayDomain
     module UseCases
       include NationalHolidayDomain::UseCases::Holiday
 
-      def self.get_national_holidays
-        GetNationalHolidays.new
+      def self.all_national_holidays
+        AllNationalHolidays.new
       end
 
-      def self.get_city_holidays
-        GetCityHolidays.new
+      def self.all_city_holidays
+        AllCityHolidays.new
       end
     end
   end

@@ -3,7 +3,7 @@
 module NationalHolidayDomain
   module UseCases
     module Holiday
-      class GetCityHolidays
+      class AllCityHolidays
         include NationalHolidayDomain::DatabaseContext::Concerns
 
         def call(country_abbr, city_code)

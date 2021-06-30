@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe NationalHolidayDomain::UseCases::Holiday::GetCityHolidays do
+describe NationalHolidayDomain::UseCases::Holiday::AllCityHolidays do
   let(:klass) { described_class.new }
 
   describe '#call' do

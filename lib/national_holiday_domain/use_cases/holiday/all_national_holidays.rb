@@ -3,7 +3,7 @@
 module NationalHolidayDomain
   module UseCases
     module Holiday
-      class GetNationalHolidays
+      class AllNationalHolidays
         include NationalHolidayDomain::DatabaseContext::Concerns
         include NationalHolidayCommons::Methods
 
